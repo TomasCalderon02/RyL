@@ -1,0 +1,10 @@
+[
+  {
+    "outputFile": "custom.css",
+    "inputFile": "custom.scss"
+  },
+  {
+    "outputFile": "css/scss/custom.css",
+    "inputFile": "css/scss/custom.scss"
+  }
+]

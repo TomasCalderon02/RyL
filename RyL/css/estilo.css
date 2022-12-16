@@ -1,0 +1,193 @@
+﻿.dashboard {
+    /*margin: 0 auto;
+    padding-left: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-right: 2em;
+        */
+}
+
+/*.dashTabla {
+    margin: 0 auto;
+    padding-left: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-right: 2em;
+    text-align: center;
+    
+}*/
+
+/*.dashTabla2 {
+    margin: 0 auto;
+    padding-left: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-right: 2em;
+    text-align: center;
+}*/
+
+/*esto fue lo que puse para que el dashboard no le diera ataque epileptico al cambiar entre las ot pendientes y listas*/
+
+@media (max-width:768px) {
+    .navbar-brand {
+        width: 70vw !important;
+    }
+}
+
+html {
+    overflow-y: scroll !important;
+}
+
+.cajaForm {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    padding-left: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-right: 2em;
+    box-shadow: 0px 10px 10px -6px black;
+    color: #ffffff;
+    background-color: #606060;
+}
+
+#ButtonAgregar, #ButtonModificar, #ButtonLogin {
+    margin-top: 10px;
+}
+
+.login {
+    /* Ubicación de la imagen */
+
+    background-image: url(../img/site/fondocolor.jpg);
+    /* Para dejar la imagen de fondo centrada, vertical y
+
+    horizontalmente */
+
+    background-position: center center;
+    /* Para que la imagen de fondo no se repita */
+
+    background-repeat: no-repeat;
+    /* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+
+    background-attachment: fixed;
+    /* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+
+    background-size: cover;
+    /*backdrop-filter: blur(3px);*/
+}
+
+.cajaLogin {
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 100px;
+    border: 2px solid;
+    border-radius: 5px;
+    padding-left: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-right: 2em;
+    box-shadow: 0px 10px 10px -6px black;
+    background-color: #606060;
+    color: #ffffff;
+}
+
+.logo {
+    display: block;
+    margin: 0px auto;
+}
+
+.fondo {
+    background-color: #0A3143;
+}
+
+.titulo {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.dashTabla:first-letter {
+    text-transform: uppercase;
+}
+
+.dashTabla2:first-letter {
+    text-transform: uppercase;
+}
+
+/*Tablas*/
+
+.otpendientetb.nav-link {
+    color: white;
+    background: #464646 !important;
+    border-bottom: none !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+    .otpendientetb.nav-link.active {
+        color: black !important;
+        background: #cecfc9 !important;
+        border-bottom: none !important;
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+    }
+
+    .otpendientetb.nav-link:hover {
+        color: #FFF700 !important;
+        border-bottom: none !important;
+        /*overflow-y:hidden !important;*/
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+    }
+
+    .otpendientetb.nav-link.active:hover {
+        color: black !important;
+        background: #cecfc9 !important;
+        border-bottom: none !important;
+        /*overflow-y:hidden !important;*/
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+    }
+
+.profile.nav-link {
+    color: white;
+    background: #668a4c !important;
+    border-bottom: none !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+    .profile.nav-link.active {
+        color: black;
+        background: #accc7b !important;
+        border-bottom: none !important;
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+    }
+
+    .profile.nav-link:hover {
+        color: #FFF700 !important;
+        border-bottom: none !important;
+        /*overflow-y:hidden !important;*/
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+    }
+
+    .profile.nav-link.active:hover {
+        color: black !important;
+        background: #accc7b !important;
+        border-bottom: none !important;
+        /*overflow-y:hidden !important;*/
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+    }
+
+.tabla1 {
+    background-color: #cecfc9 !important;
+    color: black !important;
+}
+
+.tabla2 {
+    background-color: #accc7b !important;
+}
