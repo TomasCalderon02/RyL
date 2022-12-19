@@ -1,0 +1,322 @@
+USE [Imprenta]
+GO
+/****** Object:  Table [dbo].[Administrador]    Script Date: 09-11-2022 20:57:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Administrador](
+	[AD_id] [int] NOT NULL,
+	[P_id] [int] NOT NULL,
+	[ADUser] [varchar](50) NOT NULL,
+	[ADPassword] [varchar](50) NOT NULL,
+	[Cargo] [varchar](20) NOT NULL,
+	[Est_id] [int] NOT NULL,
+ CONSTRAINT [PK_Administrador] PRIMARY KEY CLUSTERED 
+(
+	[AD_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Cliente]    Script Date: 09-11-2022 20:57:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Cliente](
+	[Rut_Cliente] [varchar](50) NOT NULL,
+	[Nombre] [varchar](50) NOT NULL,
+	[Num_tlf] [int] NULL,
+	[Direccion] [varchar](50) NULL,
+	[Correo] [varchar](50) NULL,
+ CONSTRAINT [PK_Cliente] PRIMARY KEY CLUSTERED 
+(
+	[Rut_Cliente] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Cobranza]    Script Date: 09-11-2022 20:57:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Cobranza](
+	[Folio] [int] NULL,
+	[FechaIngreso] [varchar](50) NULL,
+	[Total] [int] NULL,
+	[Comentario] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EmpImprenta]    Script Date: 09-11-2022 20:57:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EmpImprenta](
+	[Emp_id] [int] NOT NULL,
+	[P_ID] [int] NOT NULL,
+	[NUser] [varchar](50) NOT NULL,
+	[Password] [varchar](50) NOT NULL,
+	[Est_id] [int] NOT NULL,
+ CONSTRAINT [PK_EmpImprenta] PRIMARY KEY CLUSTERED 
+(
+	[Emp_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Envio]    Script Date: 09-11-2022 20:57:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Envio](
+	[Envio_id] [int] NOT NULL,
+	[Emp_id] [int] NULL,
+	[OT_id] [int] NULL,
+	[Observacion] [varchar](255) NULL,
+ CONSTRAINT [PK_Envio] PRIMARY KEY CLUSTERED 
+(
+	[Envio_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Estado_cnt]    Script Date: 09-11-2022 20:57:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Estado_cnt](
+	[Est_id] [int] NOT NULL,
+	[N_Estado] [varchar](30) NOT NULL,
+ CONSTRAINT [PK_Estado_cnt] PRIMARY KEY CLUSTERED 
+(
+	[Est_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Maquina]    Script Date: 09-11-2022 20:57:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Maquina](
+	[Maquina_id] [int] NOT NULL,
+	[Machine_name] [varchar](50) NOT NULL,
+	[Serial] [varchar](50) NOT NULL,
+	[Seguro_id] [int] NULL,
+ CONSTRAINT [PK_Maquina] PRIMARY KEY CLUSTERED 
+(
+	[Maquina_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[OT]    Script Date: 09-11-2022 20:57:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OT](
+	[OT_id] [int] NOT NULL,
+	[Emp_id] [int] NULL,
+	[AD_id] [int] NULL,
+	[ReimpresionOT] [int] NULL,
+	[Cantidad] [int] NULL,
+	[Cotizacion] [int] NULL,
+	[Cant_pliego] [int] NULL,
+	[Prueba_color] [int] NULL,
+	[Maqueta] [int] NULL,
+	[Barniz_opaco] [int] NULL,
+	[Barniz_brillante] [int] NULL,
+	[Terminacion1] [int] NULL,
+	[Terminacion2] [int] NULL,
+	[Folio] [int] NULL,
+	[Montaje] [varchar](255) NULL,
+	[Nota] [varchar](50) NULL,
+	[Papel] [varchar](50) NULL,
+	[Formato] [varchar](50) NULL,
+	[Tamaño_A] [varchar](50) NULL,
+	[Tamaño_P] [varchar](50) NULL,
+	[Tamaño_T] [varchar](50) NULL,
+	[Tiraje] [varchar](50) NULL,
+	[Sobrante] [varchar](50) NULL,
+	[Original] [varchar](50) NULL,
+	[Copia] [varchar](50) NULL,
+	[Fecha] [date] NULL,
+	[FactN] [varchar](50) NULL,
+	[GuiaN] [varchar](50) NULL,
+	[FechaI] [date] NULL,
+	[FechaE] [date] NULL,
+	[Rut_cliente] [varchar](50) NULL,
+	[Trabajo] [varchar](50) NULL,
+	[Maquina_id] [int] NULL,
+	[Tercero] [varchar](50) NULL,
+	[Tinta] [varchar](50) NULL,
+	[Tiro] [varchar](50) NULL,
+	[Retiro] [varchar](50) NULL,
+	[Estado] [int] NULL,
+	[Observacion] [varchar](255) NULL,
+ CONSTRAINT [PK_OT] PRIMARY KEY CLUSTERED 
+(
+	[OT_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Personas]    Script Date: 09-11-2022 20:57:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Personas](
+	[P_id] [int] NOT NULL,
+	[Nombres] [varchar](50) NOT NULL,
+	[Apellidos] [varchar](50) NOT NULL,
+	[Rut] [varchar](12) NOT NULL,
+	[Edad] [int] NOT NULL,
+	[Num_tlf] [int] NULL,
+ CONSTRAINT [PK_Personas] PRIMARY KEY CLUSTERED 
+(
+	[P_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Seguro]    Script Date: 09-11-2022 20:57:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Seguro](
+	[Seguro_id] [int] NOT NULL,
+	[Seguro] [varchar](50) NOT NULL,
+	[Cont_seguro] [varchar](50) NOT NULL,
+	[Fecha_venc] [date] NOT NULL,
+	[Estado] [int] NOT NULL,
+	[Detalles] [varchar](50) NULL,
+ CONSTRAINT [PK_Seguro] PRIMARY KEY CLUSTERED 
+(
+	[Seguro_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Ventas]    Script Date: 09-11-2022 20:57:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Ventas](
+	[Venta_id] [int] NOT NULL,
+	[AD_id] [int] NOT NULL,
+	[Doc] [int] NOT NULL,
+	[Folio] [int] NOT NULL,
+	[Monto_T] [int] NOT NULL,
+	[Rut_Cliente] [varchar](50) NOT NULL,
+	[Razon_Social] [varchar](50) NOT NULL,
+	[Fecha_doc] [date] NOT NULL,
+	[Fecha_pago] [date] NOT NULL,
+	[Vendedor] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Ventas] PRIMARY KEY CLUSTERED 
+(
+	[Venta_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Administrador] ([AD_id], [P_id], [ADUser], [ADPassword], [Cargo], [Est_id]) VALUES (0, 0, N'0', N'0', N'0', 2)
+GO
+INSERT [dbo].[Administrador] ([AD_id], [P_id], [ADUser], [ADPassword], [Cargo], [Est_id]) VALUES (1, 1, N'admin', N'123', N'admin', 1)
+GO
+INSERT [dbo].[Administrador] ([AD_id], [P_id], [ADUser], [ADPassword], [Cargo], [Est_id]) VALUES (2, 3, N'seguri', N'dad', N'admin', 1)
+GO
+INSERT [dbo].[Cliente] ([Rut_Cliente], [Nombre], [Num_tlf], [Direccion], [Correo]) VALUES (N'1', N'cliente', 11111111, N'direccion', N'correo')
+GO
+INSERT [dbo].[Cobranza] ([Folio], [FechaIngreso], [Total], [Comentario]) VALUES (1, N'2022-10-01', 20000, N'comentario2')
+GO
+INSERT [dbo].[EmpImprenta] ([Emp_id], [P_ID], [NUser], [Password], [Est_id]) VALUES (0, 0, N'0', N'0', 2)
+GO
+INSERT [dbo].[EmpImprenta] ([Emp_id], [P_ID], [NUser], [Password], [Est_id]) VALUES (1, 2, N'user', N'123', 1)
+GO
+INSERT [dbo].[Estado_cnt] ([Est_id], [N_Estado]) VALUES (1, N'activo')
+GO
+INSERT [dbo].[Estado_cnt] ([Est_id], [N_Estado]) VALUES (2, N'inactivo')
+GO
+INSERT [dbo].[Maquina] ([Maquina_id], [Machine_name], [Serial], [Seguro_id]) VALUES (1, N'Maquina 1', N'serial', 1)
+GO
+INSERT [dbo].[Maquina] ([Maquina_id], [Machine_name], [Serial], [Seguro_id]) VALUES (2, N'Maquina 2', N'serial', 1)
+GO
+INSERT [dbo].[Maquina] ([Maquina_id], [Machine_name], [Serial], [Seguro_id]) VALUES (3, N'Maquina 3', N'serial', 1)
+GO
+INSERT [dbo].[OT] ([OT_id], [Emp_id], [AD_id], [ReimpresionOT], [Cantidad], [Cotizacion], [Cant_pliego], [Prueba_color], [Maqueta], [Barniz_opaco], [Barniz_brillante], [Terminacion1], [Terminacion2], [Folio], [Montaje], [Nota], [Papel], [Formato], [Tamaño_A], [Tamaño_P], [Tamaño_T], [Tiraje], [Sobrante], [Original], [Copia], [Fecha], [FactN], [GuiaN], [FechaI], [FechaE], [Rut_cliente], [Trabajo], [Maquina_id], [Tercero], [Tinta], [Tiro], [Retiro], [Estado], [Observacion]) VALUES (1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, N'Portada_Blog_fotososcuras.png', N'nota', N'papel', N'formato', N'tamaño articulo', N'papel', N'terminado', N'tiraje', N'sobrante', N'original', N'copia', CAST(N'2022-06-16' AS Date), N'1', N'1', CAST(N'2022-06-16' AS Date), CAST(N'2022-06-16' AS Date), N'1', N'trabajo2', 1, N'tercero', N'tinta', N'tiro', N'retiro', 1, N'obs')
+GO
+INSERT [dbo].[OT] ([OT_id], [Emp_id], [AD_id], [ReimpresionOT], [Cantidad], [Cotizacion], [Cant_pliego], [Prueba_color], [Maqueta], [Barniz_opaco], [Barniz_brillante], [Terminacion1], [Terminacion2], [Folio], [Montaje], [Nota], [Papel], [Formato], [Tamaño_A], [Tamaño_P], [Tamaño_T], [Tiraje], [Sobrante], [Original], [Copia], [Fecha], [FactN], [GuiaN], [FechaI], [FechaE], [Rut_cliente], [Trabajo], [Maquina_id], [Tercero], [Tinta], [Tiro], [Retiro], [Estado], [Observacion]) VALUES (2, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, N'windows-xp-bliss-start-screen-100259803-orig.jpg', N'nota', N'papel', N'formato', N'tamaño articulo', N'papel', N'terminado', N'tiraje', N'sobrante', N'original', N'copia', CAST(N'2022-06-16' AS Date), N'1', N'1', CAST(N'2022-06-16' AS Date), CAST(N'2022-06-16' AS Date), N'1', N'trabajo', 1, N'tercero', N'tinta', N'tiro', N'retiro', 0, N'obs')
+GO
+INSERT [dbo].[OT] ([OT_id], [Emp_id], [AD_id], [ReimpresionOT], [Cantidad], [Cotizacion], [Cant_pliego], [Prueba_color], [Maqueta], [Barniz_opaco], [Barniz_brillante], [Terminacion1], [Terminacion2], [Folio], [Montaje], [Nota], [Papel], [Formato], [Tamaño_A], [Tamaño_P], [Tamaño_T], [Tiraje], [Sobrante], [Original], [Copia], [Fecha], [FactN], [GuiaN], [FechaI], [FechaE], [Rut_cliente], [Trabajo], [Maquina_id], [Tercero], [Tinta], [Tiro], [Retiro], [Estado], [Observacion]) VALUES (3, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, N'(1) windows-xp-bliss-start-screen-100259803-orig.jpg', N'nota', N'papel', N'formato', N'tamaño articulo', N'papel', N'terminado', N'tiraje', N'sobrante', N'original', N'copia', CAST(N'2022-01-01' AS Date), N'1', N'1', CAST(N'2022-01-01' AS Date), CAST(N'2022-01-01' AS Date), N'1', N'trabajo2', 1, N'tercero', N'tinta', N'tiro', N'retiro', 1, N'obs')
+GO
+INSERT [dbo].[Personas] ([P_id], [Nombres], [Apellidos], [Rut], [Edad], [Num_tlf]) VALUES (0, N'0', N'0', N'0', 0, 0)
+GO
+INSERT [dbo].[Personas] ([P_id], [Nombres], [Apellidos], [Rut], [Edad], [Num_tlf]) VALUES (1, N'Admin', N'Istrador', N'1.111.111-1', 35, 11111111)
+GO
+INSERT [dbo].[Personas] ([P_id], [Nombres], [Apellidos], [Rut], [Edad], [Num_tlf]) VALUES (2, N'Usu', N'Ario', N'2.222.222-2', 42, 22222222)
+GO
+INSERT [dbo].[Personas] ([P_id], [Nombres], [Apellidos], [Rut], [Edad], [Num_tlf]) VALUES (3, N'Adm', N'In', N'3.333.333-3', 23, 33333333)
+GO
+INSERT [dbo].[Seguro] ([Seguro_id], [Seguro], [Cont_seguro], [Fecha_venc], [Estado], [Detalles]) VALUES (1, N'seguro', N'contseguro', CAST(N'2022-06-15' AS Date), 1, N'detalles')
+GO
+INSERT [dbo].[Ventas] ([Venta_id], [AD_id], [Doc], [Folio], [Monto_T], [Rut_Cliente], [Razon_Social], [Fecha_doc], [Fecha_pago], [Vendedor]) VALUES (1, 1, 1, 1, 1, N'1', N'rs2', CAST(N'2022-06-16' AS Date), CAST(N'2022-06-16' AS Date), N'vendedor')
+GO
+INSERT [dbo].[Ventas] ([Venta_id], [AD_id], [Doc], [Folio], [Monto_T], [Rut_Cliente], [Razon_Social], [Fecha_doc], [Fecha_pago], [Vendedor]) VALUES (2, 1, 1, 1, 2, N'1', N'rs', CAST(N'2022-06-16' AS Date), CAST(N'2022-06-16' AS Date), N'vendedor')
+GO
+INSERT [dbo].[Ventas] ([Venta_id], [AD_id], [Doc], [Folio], [Monto_T], [Rut_Cliente], [Razon_Social], [Fecha_doc], [Fecha_pago], [Vendedor]) VALUES (3, 1, 2, 2, 2, N'1', N'rs', CAST(N'2022-09-13' AS Date), CAST(N'2022-09-13' AS Date), N'v')
+GO
+ALTER TABLE [dbo].[Administrador]  WITH CHECK ADD  CONSTRAINT [FK_Administrador_Estado_cnt] FOREIGN KEY([Est_id])
+REFERENCES [dbo].[Estado_cnt] ([Est_id])
+GO
+ALTER TABLE [dbo].[Administrador] CHECK CONSTRAINT [FK_Administrador_Estado_cnt]
+GO
+ALTER TABLE [dbo].[Administrador]  WITH CHECK ADD  CONSTRAINT [FK_Administrador_Personas] FOREIGN KEY([P_id])
+REFERENCES [dbo].[Personas] ([P_id])
+GO
+ALTER TABLE [dbo].[Administrador] CHECK CONSTRAINT [FK_Administrador_Personas]
+GO
+ALTER TABLE [dbo].[EmpImprenta]  WITH CHECK ADD  CONSTRAINT [FK_EmpImprenta_Estado_cnt] FOREIGN KEY([Est_id])
+REFERENCES [dbo].[Estado_cnt] ([Est_id])
+GO
+ALTER TABLE [dbo].[EmpImprenta] CHECK CONSTRAINT [FK_EmpImprenta_Estado_cnt]
+GO
+ALTER TABLE [dbo].[EmpImprenta]  WITH CHECK ADD  CONSTRAINT [FK_EmpImprenta_Personas] FOREIGN KEY([P_ID])
+REFERENCES [dbo].[Personas] ([P_id])
+GO
+ALTER TABLE [dbo].[EmpImprenta] CHECK CONSTRAINT [FK_EmpImprenta_Personas]
+GO
+ALTER TABLE [dbo].[Envio]  WITH CHECK ADD  CONSTRAINT [FK_Envio_EmpImprenta] FOREIGN KEY([Emp_id])
+REFERENCES [dbo].[EmpImprenta] ([Emp_id])
+GO
+ALTER TABLE [dbo].[Envio] CHECK CONSTRAINT [FK_Envio_EmpImprenta]
+GO
+ALTER TABLE [dbo].[Envio]  WITH CHECK ADD  CONSTRAINT [FK_Envio_OT] FOREIGN KEY([OT_id])
+REFERENCES [dbo].[OT] ([OT_id])
+GO
+ALTER TABLE [dbo].[Envio] CHECK CONSTRAINT [FK_Envio_OT]
+GO
+ALTER TABLE [dbo].[Maquina]  WITH CHECK ADD  CONSTRAINT [FK_Maquina_Seguro] FOREIGN KEY([Seguro_id])
+REFERENCES [dbo].[Seguro] ([Seguro_id])
+GO
+ALTER TABLE [dbo].[Maquina] CHECK CONSTRAINT [FK_Maquina_Seguro]
+GO
+ALTER TABLE [dbo].[OT]  WITH CHECK ADD  CONSTRAINT [FK_OT_Administrador] FOREIGN KEY([AD_id])
+REFERENCES [dbo].[Administrador] ([AD_id])
+GO
+ALTER TABLE [dbo].[OT] CHECK CONSTRAINT [FK_OT_Administrador]
+GO
+ALTER TABLE [dbo].[OT]  WITH CHECK ADD  CONSTRAINT [FK_OT_Cliente] FOREIGN KEY([Rut_cliente])
+REFERENCES [dbo].[Cliente] ([Rut_Cliente])
+GO
+ALTER TABLE [dbo].[OT] CHECK CONSTRAINT [FK_OT_Cliente]
+GO
+ALTER TABLE [dbo].[OT]  WITH CHECK ADD  CONSTRAINT [FK_OT_EmpImprenta] FOREIGN KEY([Emp_id])
+REFERENCES [dbo].[EmpImprenta] ([Emp_id])
+GO
+ALTER TABLE [dbo].[OT] CHECK CONSTRAINT [FK_OT_EmpImprenta]
+GO
+ALTER TABLE [dbo].[OT]  WITH CHECK ADD  CONSTRAINT [FK_OT_Maquina] FOREIGN KEY([Maquina_id])
+REFERENCES [dbo].[Maquina] ([Maquina_id])
+GO
+ALTER TABLE [dbo].[OT] CHECK CONSTRAINT [FK_OT_Maquina]
+GO
